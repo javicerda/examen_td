@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-5" style="height: 60vh">
     <div class="columns">
       <div class="column is-one-third"></div>
       <div class="column is-one-third">

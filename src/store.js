@@ -44,7 +44,6 @@ export default new Vuex.Store({
       products.forEach((prod) => {
         prod['qty'] = 1
         state.products.push(prod)
-
       }),
       state.loading = false
     },
@@ -91,7 +90,7 @@ export default new Vuex.Store({
     },
     UPDATE_EDIT(state) {
       state.edit = !state.edit
-    }
+    },
   },
   actions: {
     // User
@@ -137,7 +136,6 @@ export default new Vuex.Store({
       })
     },
     getProducts({ commit }){
-      commit('LOADING_PRODUCTS')
         axios.get('https://us-central1-tdg3-a200f.cloudfunctions.net/products/products', {
           headers: { "Content-type" : "text/plain" }
         }).then((accept)=>{

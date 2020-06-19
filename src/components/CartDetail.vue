@@ -1,5 +1,6 @@
 <template>
-  <div class="modal" v-bind:class="{'is-active':  showModal}">
+  <!-- modal show content to cart -->
+  <div class="modal" v-bind:class="{'is-active': showModal}">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
@@ -16,7 +17,7 @@
                     <!-- img -->
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                        <img :src="p.data.picture" alt="Placeholder image">
                       </figure>
                     </div>
                     <!-- product -->

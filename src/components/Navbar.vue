@@ -5,33 +5,27 @@
     <div class="navbar-brand">
       <router-link to="/" class="navbar-item">
        <i class="mdi mdi-barley mr-1"/>
-     {{ brand }}
-      </router-link>
-      <a role="button"
-      class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-      :class='{"is-active" :displayMenu}'
-      data-target="navbarMenu"
-      @click="displayMenu = !displayMenu">
+        {{ brand }}
+        </router-link>
+        <a role="button"
+        class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+        :class='{"is-active" :displayMenu}'
+        data-target="navbarMenu"
+        @click="displayMenu = !displayMenu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <!--  -->
+    <!-- NavBar Logic -->
     <div id="navbarMenu" class="navbar-menu" :class='{"is-active" : displayMenu}'>
         <div class="navbar-start">
-          <!--
-          <a class="navbar-item">
-            Home
-          </a>
-          -->
         </div>
-
         <div class="navbar-end">
           <a data-testId='cart' class="navbar-item" @click="showCart">
             <span class="icon">
               <i class="mdi mdi-32px mdi-cart"></i>
-              <span class="tag is-warning" v-if="$store.getters.shoppingCart.list.length > 0">
+              <span class="tag is-danger" v-if="$store.getters.shoppingCart.list.length > 0">
                 {{ $store.getters.shoppingCart.list.length }}
               </span>
             </span>
@@ -45,7 +39,7 @@
                   <i class="mdi mdi-32px mdi-account"></i>
                 </span> Hola! {{ getCurrentUser ? getCurrentUser.email : ''}}
             </a>
-
+            <!-- NavBar DropDown -->
             <div class="navbar-dropdown">
               <a class="navbar-item">
                 Preferencias
@@ -54,7 +48,7 @@
                 Ver Carrito
               </a>
                <a class="navbar-item">
-              <router-link to="/create">Crear Producto</router-link>
+                <router-link to="/create">Crear Producto</router-link>
               </a>
               <hr class="navbar-divider">
               <a class="navbar-item" @click="logout">
@@ -64,8 +58,7 @@
           </div>
         </div>
       </div>
-    <!--  -->
-    </div> <!-- container -->
+    </div>
   </nav>
 </template>
 
@@ -112,10 +105,3 @@ export default {
   mounted() {}
 }
 </script>
-
-<style lang="scss" scoped>
-nav {
-  height: 3.25rem;
-  background-color: rgba(31, 202, 74, 0.219);
-}
-</style>
