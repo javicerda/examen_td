@@ -44,6 +44,20 @@
                   </div>
                 </div>
               </div>
+              <!--Ingresa la descripcion producto-->
+              <div class="field is-horizontal mt-5">
+                <div class="field-label is-normal">
+                  <label class="label">Descripcion</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <p class="control is-expanded">
+                      <input class="input is-small" type="text" v-model="description"
+                      placeholder="Ingresa la descripción de tu producto aquí">
+                    </p>
+                  </div>
+                </div>
+              </div>
 
 
               <div class="field is-horizontal">
@@ -69,6 +83,7 @@
                         <th>Producto</th>
                         <th>Imagen</th>
                         <th>Precio</th>
+                        <th>Descripción</th>
                         <th colspan='2'> </th>
                       </tr>
                     </thead>
@@ -77,12 +92,12 @@
                           <td>{{ p.data.name }}</td>
                           <td><img :src="p.data.picture"></td>
                           <td>{{ p.data.price }}</td>
+                          <td>{{ p.data.description }}</td>
                           <td>
                               <button class='button is-light is-small' @click="editProduct(p.id)">
                               <i class="mdi mdi-lead-pencil mr-1"/>Editar</button>
                             <div class='is-clearfix'></div>
-                          </td>
-                          <td>
+
                               <button class='button is-danger is-light is-small' @click="deleteProduct(p.id)">
                               <i class="mdi mdi-trash-can mr-1"/>Borrar</button>
                             <div class='is-clearfix'></div>
@@ -103,6 +118,7 @@ export default {
         name:'',
         picture:'',
         price: '',
+        description: '',
         id: undefined
         }
     },
@@ -112,7 +128,8 @@ export default {
          let music = {
                 name: this.name,
                 picture: this.picture,
-                price: this.price
+                price: this.price,
+                description: this.description
                 }
                 axios.post('https://us-central1-tdg3-a200f.cloudfunctions.net/products/product', music,
                 {headers: {'Content-type':'application/json'}})
@@ -146,6 +163,7 @@ export default {
                 this.name = response.data.name
                 this.picture = response.data.picture
                 this.price = response.data.price
+                this.description = response.data.description
                 this.id = id
             })
         },
@@ -154,6 +172,7 @@ export default {
                 name: this.name,
                 picture: this.picture,
                 price: this.price,
+                description: this.description
                 }
                 axios.put(`https://us-central1-tdg3-a200f.cloudfunctions.net/products/product/${id}`, music,
                 {headers: {'Content-type':'application/json'}})
@@ -162,6 +181,7 @@ export default {
                             this.price = ''
                             this.picture = ''
                             this.id = ''
+                            this.description = ''
                             this.$store.dispatch('getProducts')
                         })
                         .catch((error) => {
@@ -194,23 +214,3 @@ img{
     height: 6vh;
 }
 </style>>
-
-
-
-//*resetInputs(){
-            this.product.name = ""
-            this.product.img = ""
-            this.product.price = ""
-            this.product.text = ""
-        }
-
-        *//
-
-        //* .then(() => {
-                    this.sending = false
-                    this.resetInputs()
-                    this.$store.dispatch('getProducts')
-                })
-
-
-                *//

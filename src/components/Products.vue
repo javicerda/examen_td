@@ -48,7 +48,7 @@
                 </div> -->
               <!-- </div> -->
               <!-- <p></p> -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada.</p>
+              <p>{{ p.data.description }}</p>
               <!-- <p></p> -->
               <div class="counter">
                 <button @click="decrQty(p.id)" :disabled="p.qty === 1"><i class="mdi mdi-minus"></i></button>
