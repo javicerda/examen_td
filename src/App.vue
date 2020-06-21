@@ -2,7 +2,7 @@
   <div id="app">
     <!-- call to navbar -->
     <navbar :brand="'pan.ico sourdough'"/>
-    <!-- overlay modal -->
+    <!-- progress bar -->
     <div class="modal" :class="{'is-active': overlay}">
       <div class="modal-background"></div>
         <div class="modal-content">
@@ -10,7 +10,7 @@
         </div>
     </div>
     <router-view/>
-    <!-- footer -->
+    <!-- call to footer -->
     <Footer/>
   </div>
 </template>
@@ -26,6 +26,7 @@ export default {
     Footer
   },
   computed:{
+    //bring the overlay property to show the progress bar (page load)
         ...mapState([ 'overlay' ])
     },
 }

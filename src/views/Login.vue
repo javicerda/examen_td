@@ -82,7 +82,7 @@ export default {
           this.$router.push('/')
         })
         .catch(() => {
-          alert('Usuario no autenticado')
+          alert('Email o Contraseña incorrectos, Intente nuevamente.')
         })
       }
     }

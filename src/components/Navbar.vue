@@ -41,9 +41,6 @@
             </a>
             <!-- NavBar DropDown -->
             <div class="navbar-dropdown">
-              <a class="navbar-item">
-                Preferencias
-              </a>
               <a class="navbar-item" @click="showCart">
                 Ver Carrito
               </a>
@@ -86,7 +83,7 @@ export default {
     },
     logout() {
       Firebase.auth().signOut().then(()=>{
-       this.$router.push('login')  
+       this.$router.push('home')  
        this.$store.dispatch('updateUser', false)
       })
     }

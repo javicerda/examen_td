@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <!-- Hero and search section -->
     <section class="hero is-white">
       <div class="hero-body">
         <div class="container">
@@ -12,8 +13,7 @@
             </h2>
           </div>
           <div class="is-pulled-right" style="display: inline-block;">
-            <!-- <label for="searchBox">Buscar </label>
-            <input type="text" id="searchBox" v-model="search"/> -->
+            <!-- Searh area -->
             <div class="field">
               <p class="control has-icons-left">
                 <input class="input is-danger" type="text" placeholder="" v-model="search">
@@ -22,7 +22,7 @@
                 </span>
               </p>
             </div>
-            <!--  -->
+            
           </div>
         </div>
       </div>
@@ -40,13 +40,6 @@
             <div class="content">
               <h3 class="title">{{ p.data.name }}</h3>
               <p class="subtitle">$ {{ p.data.price * p.qty}}</p>
-              <!-- <div class="has-spacing-bottom"> -->
-                <!-- <div class="has-spacing-bottom">
-                  <span class="tag is-medium">tortor</span>
-                  <span class="tag is-medium">suscipit</span>
-                  <span class="tag is-medium">Vivamus</span>
-                </div> -->
-              <!-- </div> -->
               <!-- <p></p> -->
               <p>{{ p.data.description }}</p>
               <!-- <p></p> -->

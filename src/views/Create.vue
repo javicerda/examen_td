@@ -95,12 +95,10 @@
                           <td>{{ p.data.description }}</td>
                           <td>
                               <button class='button is-light is-small' @click="editProduct(p.id)">
-                              <i class="mdi mdi-lead-pencil mr-1"/>Editar</button>
-                            <div class='is-clearfix'></div>
+                              <i class="mdi mdi-lead-pencil mr-1"/></button>
 
-                              <button class='button is-danger is-light is-small' @click="deleteProduct(p.id)">
-                              <i class="mdi mdi-trash-can mr-1"/>Borrar</button>
-                            <div class='is-clearfix'></div>
+                              <button class='button is-danger is-light is-small mx-4' @click="deleteProduct(p.id)">
+                              <i class="mdi mdi-trash-can mr-1"/></button>
                           </td>
                         </tr>
                     </tbody>
@@ -112,6 +110,9 @@
 <script>
 import axios from 'axios'
 import { mapState, mapActions } from 'vuex'
+
+const baseURL = 'https://us-central1-tdg3-a200f.cloudfunctions.net/products/product'
+
 export default {
     data(){
         return{
@@ -131,7 +132,7 @@ export default {
                 price: this.price,
                 description: this.description
                 }
-                axios.post('https://us-central1-tdg3-a200f.cloudfunctions.net/products/product', music,
+                axios.post(`${baseURL}`, music,
                 {headers: {'Content-type':'application/json'}})
                         .then((response) => {
                             console.log(response);
@@ -144,7 +145,7 @@ export default {
         deleteProduct(id){
             let confirmation = confirm('Estás seguro que deseas eliminar?')
             if(confirmation) {
-            axios.delete(`https://us-central1-tdg3-a200f.cloudfunctions.net/products/product/${id}`,
+            axios.delete(`${baseURL}/${id}`,
             {headers: {'Content-type':'application/json'}})
             .then(() => {
                 alert('Producto eliminado exitosamente')
@@ -157,7 +158,7 @@ export default {
             this.findProduct(id)
         },
         findProduct(id){
-             axios.get(`https://us-central1-tdg3-a200f.cloudfunctions.net/products/product/${id}`,
+             axios.get(`${baseURL}/${id}`,
             {headers: {'Content-type':'application/json'}})
             .then((response) => {
                 this.name = response.data.name
@@ -174,7 +175,7 @@ export default {
                 price: this.price,
                 description: this.description
                 }
-                axios.put(`https://us-central1-tdg3-a200f.cloudfunctions.net/products/product/${id}`, music,
+                axios.put(`${baseURL}/${id}`, music,
                 {headers: {'Content-type':'application/json'}})
                         .then(() => {
                             this.name = ''
@@ -211,6 +212,6 @@ table{
     width: 80vw;
 }
 img{
-    height: 6vh;
+    height: 9vh;
 }
 </style>>
