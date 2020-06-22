@@ -5,7 +5,7 @@ import sinon from 'sinon'
 import Products from '@/components/Products.vue'
 
 describe('Products.vue', () => {
-  let mockProducts = [{ name: 'Computadora', price: 100.0,qty: 1 }]
+  let mockProducts = [{ name: 'Pan de campo', price: 3000,qty: 1 }]
 
   it('Muestra el titulo "Nuestros Productos"', () => {
     const title = 'Nuestros Productos'

@@ -1,5 +1,7 @@
 # my_store
 
+Is a bakery with a shopping cart, owners can login to add and edit products
+
 ## Project setup
 ```
 npm install
@@ -35,5 +37,9 @@ npm run test:e2e
 npm run test:unit
 ```
 
+### Deploy Firebase Hosting
+```
+firebase deploy --only hosting
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

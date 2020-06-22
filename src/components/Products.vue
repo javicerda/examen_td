@@ -28,9 +28,9 @@
       </div>
     </section>
     <div class="columns is-multiline">
-      <div class="column is-4 is-inline-flex" v-for="p in computedProductList" :key="p.id">
+      <div class="column is-4 is-inline-flex" id="card" v-for="p in computedProductList" :key="p.id">
         <!-- Item -->
-        <div class="card has-equal-height">
+        <div class="card has-equal-height"> 
           <div class="image-card">
             <div class="image has-spacing image">
               <img alt="product logo" :src="p.data.picture">
@@ -120,4 +120,10 @@ export default {
     cursor: pointer;
   }
 }
+  #card{
+    transition: all .5s;
+  }
+  #card:hover{
+    transform: translateY(0.4rem) scale(1.03);
+  }
 </style>
